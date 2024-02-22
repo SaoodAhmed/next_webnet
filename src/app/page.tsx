@@ -48,7 +48,19 @@ export default async function Home() {
           return <Servic data = {item.meta} />
         }else if(item.type==='icons-1'){
           return <InspiringServices data={item.meta}/>
+        }else if(item.type === 'content-2'){
+          return <WebNetSeo data={item.meta} />
+        }else if(item.type === 'counter-1'){
+          return <WorriedAbou data={item.meta} />
+        }else if(item.type === "content-3"){
+          return <TailorMadeWebsite data={item.meta} />
+        }else if(item.type === "clients-1"){
+          return <Served data={item.meta}/>
+
+        }else if(item.type === "testimonials-1"){
+          return <ClientExpect data = {item.meta}/>
         }
+
 
       })
     }

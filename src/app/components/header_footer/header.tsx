@@ -16,17 +16,17 @@ const Header = () => {
     <>
       <header className="home-header">
         <div className="container-fluid">
-          <div className="header-row relative">
+          <div className="header-row ">
             <a href="index.php" className="logo">
               <img src={`${process.env.PUBLIC_URL}/assets_frontend/img/logo.webp`} />
             </a>
-            <div className="">
+            <div className="relative">
               <button
                 type="button"
-                className="menubtn absolute top-0 right-0"
+                className="menubtn fixed  right-8 top-7"
                 onClick={() => updateMenuState({ transform: "translateX(0)" })}
               >
-                <GiHamburgerMenu size={30} />
+                <GiHamburgerMenu className="text-gray-100" size={40 } />
               </button>
             </div>
           </div>

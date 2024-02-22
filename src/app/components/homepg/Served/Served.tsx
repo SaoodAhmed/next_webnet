@@ -37,7 +37,7 @@ const fetchClientData = async ()=>{
 
 
 
-export default async function Served(){
+const Served:React.FC<{data:any}>=async ({data})=>{
   const clientData:ClientDataType[] = await fetchClientData()
   console.log("client site data: ",clientData)
     return (
@@ -48,13 +48,12 @@ export default async function Served(){
           <div className="row">
             {/* text-left text-center */}
             <div className="col-sm-12 text-center">
-              <h2>The Clients To Whom We Served Our Professional Web</h2>
+              <h2>{data.heading}</h2>
               <h3>
-                developers assure the high quality standards while making websites
+                {data.sub_heading}
               </h3>
               <p>
-                orem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                finibus vehicula qua
+                {data.text}
               </p>
 
               {/* i have edited it! */}
@@ -243,3 +242,5 @@ export default async function Served(){
   
     )
 }
+
+export default Served;

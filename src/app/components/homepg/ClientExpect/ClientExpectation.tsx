@@ -35,9 +35,9 @@ export const testimonials = async () => {
   }
 };
 
-export default async function ClientExpect() {
+const ClientExpect: React.FC<{data:any}>= async ({data})=> {
   const testimonialsData:TestiNomialsType[] = await testimonials();
-  // console.log(testimonialsData);
+  console.log("testimonial:",testimonialsData);
 
   return (
     <>
@@ -45,7 +45,7 @@ export default async function ClientExpect() {
         <div className="container">
           <div className="shaderow">
             <div className="shade">
-              <h2 className="shadow-text">Feedback</h2>
+              <h2 className="shadow-text">{data.bg_text}</h2>
             </div>
           </div>
           <div
@@ -59,20 +59,13 @@ export default async function ClientExpect() {
                   <div className="news__dots" />
                 </div>
                 <div className="whats">
-                  <h2>What our clients say</h2>
+                  <h2>{data.heading}</h2>
                   <p>
-                    We have had the privilege of serving clients from a diverse
-                    range of countries, including but not limited to the United
-                    States of America, Canada, Saudi Arabia, Kuwait, and
-                    Pakistan. Our experience working with clients from these
-                    countries has enriched our understanding of different
-                    cultures and business practices, and has helped us to better
-                    serve our clients and provide tailored solutions to their
-                    unique needs and challenges.
+                    {data.text}
                   </p>
                   <div className="viewsuccess-btn">
                     <a href="#" className="">
-                      Success Stories
+                      {data.btn}
                     </a>
                   </div>
                 </div>
@@ -81,18 +74,18 @@ export default async function ClientExpect() {
             <div className="col-sm-7">
               <ul className="testimonials" style={{ listStyle: "none" }}>
 
-                {/* {
+                {
                   testimonialsData.map((testinomial:TestiNomialsType)=>(
                   <li key={testinomial.id}>
                     <div className="test-item">
-                      <h3>Aliff Logo Design</h3>
+                      <h3>{testinomial.designation}</h3>
                       <strong>{testinomial.name}</strong>
                       <p>{testinomial.description}</p>
                     </div>
                   </li>
 
                   ))
-                } */}
+                }
 
 
                 {/* <li>
@@ -201,15 +194,17 @@ export default async function ClientExpect() {
         </div>
         <div
           className="rains"
-          style={{ backgroundImage: 'url("img/rainbow.jpg")' }}
+          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}${data.image})` }}
         >
           <div className="container">
             <div className="row">
               <div className="col-sm-5">
                 <div className="raincard">
-                  <h2>Let’s work on a project together</h2>
+                  <h3>{data.sub_heading_2}</h3>
+
+                  <h2>{data.heading_2}</h2>
                   <a href="#" className="">
-                    Request a Quote
+                    {data.btn2}
                   </a>
                 </div>
               </div>
@@ -221,3 +216,5 @@ export default async function ClientExpect() {
     </>
   );
 }
+
+export default ClientExpect;
