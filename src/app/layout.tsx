@@ -10,6 +10,26 @@ import Header from "./components/header_footer/header";
 
 
 
+
+
+const fetchMenuData = async ()=>{
+
+  try {
+    const res = await fetch(`https://webnet.imagiacian.com/api/primary-menu`,{cache:'no-store'})
+    if(!res.ok){
+      throw new Error('Error in fetching data')
+    }
+    const result = res.json()
+    return result;
+
+  } catch (error) {
+    console.log('Fetch error: ' + (error as any).message);
+
+  }
+
+}
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,11 +37,14 @@ export const metadata: Metadata = {
   description: "Generated Saud Ahmed",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const menu = await  fetchMenuData();
+  console.log("menu: ",menu)
   return (
     <html lang="en">
       <Head>

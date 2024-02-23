@@ -1,19 +1,49 @@
 "use client";
-import { use, useState } from "react";
+
+import React from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import Link from "next/link";
+import axios from "axios";
 
-const Header = () => {
+
+
+
+
+
+const Header:React.FC<{data:any}> = ({data}) => {
+  console.log("it's menu data: ",data)
+  
+ 
+
   const [activeMenu, setActiveMenu] = useState(null);
+  const [menuData, setMenuData] = useState<any>(null);
   const [MenuCss, updateMenuState] = useState({
     transform: "translateX(100%)",
   });
 
+
+  useEffect(() => {
+    // Fetch menu data when component mounts
+    axios.get("https://webnet.imagiacian.com/api/primary-menu")
+      .then((response:any) => {
+        setMenuData(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching menu data:", error);
+      });
+  }, []);
+
+  console.log("my menu: ",menuData)
+
+  
+
   return (
     <>
+
       <header className="home-header">
         <div className="container-fluid">
           <div className="header-row ">

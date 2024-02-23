@@ -1,21 +1,16 @@
-
-
 interface TestiNomialsType {
-    id: number,
-    title: null,
-    description: string;
-    name: string,
-    designation: string,
-    image: string,
-    is_active: number,
-    sort_order: 1,
-    created_at: string,
-    updated_at: string,
-    deleted_at: null
+  id: number;
+  title: null;
+  description: string;
+  name: string;
+  designation: string;
+  image: string;
+  is_active: number;
+  sort_order: 1;
+  created_at: string;
+  updated_at: string;
+  deleted_at: null;
 }
-
-
-
 
 export const testimonials = async () => {
   try {
@@ -35,9 +30,9 @@ export const testimonials = async () => {
   }
 };
 
-const ClientExpect: React.FC<{data:any}>= async ({data})=> {
-  const testimonialsData:TestiNomialsType[] = await testimonials();
-  console.log("testimonial:",testimonialsData);
+const ClientExpect: React.FC<{ data: any }> = async ({ data }) => {
+  const testimonialsData: TestiNomialsType[] = await testimonials();
+  console.log("testimonial:", testimonialsData);
 
   return (
     <>
@@ -45,7 +40,7 @@ const ClientExpect: React.FC<{data:any}>= async ({data})=> {
         <div className="container">
           <div className="shaderow">
             <div className="shade">
-              <h2 className="shadow-text">{data.bg_text}</h2>
+              {/* <h2 className="shadow-text">{data.bg_text}</h2> */}
             </div>
           </div>
           <div
@@ -59,13 +54,11 @@ const ClientExpect: React.FC<{data:any}>= async ({data})=> {
                   <div className="news__dots" />
                 </div>
                 <div className="whats">
-                  <h2>{data.heading}</h2>
-                  <p>
-                    {data.text}
-                  </p>
+                  {/* <h2>{data.heading}</h2> */}
+                  <p>{/* {data.text} */}</p>
                   <div className="viewsuccess-btn">
                     <a href="#" className="">
-                      {data.btn}
+                      {/* {data.btn} */}
                     </a>
                   </div>
                 </div>
@@ -73,9 +66,7 @@ const ClientExpect: React.FC<{data:any}>= async ({data})=> {
             </div>
             <div className="col-sm-7">
               <ul className="testimonials" style={{ listStyle: "none" }}>
-
-                {
-                  testimonialsData.map((testinomial:TestiNomialsType)=>(
+                {testimonialsData.map((testinomial: TestiNomialsType) => (
                   <li key={testinomial.id}>
                     <div className="test-item">
                       <h3>{testinomial.designation}</h3>
@@ -83,10 +74,7 @@ const ClientExpect: React.FC<{data:any}>= async ({data})=> {
                       <p>{testinomial.description}</p>
                     </div>
                   </li>
-
-                  ))
-                }
-
+                ))}
 
                 {/* <li>
                   <div className="test-item">
@@ -194,17 +182,17 @@ const ClientExpect: React.FC<{data:any}>= async ({data})=> {
         </div>
         <div
           className="rains"
-          style={{ backgroundImage: `url(${process.env.PUBLIC_URL}${data.image})` }}
+          //style={{ backgroundImage: `url(${process.env.PUBLIC_URL}${data.image})` }}
         >
           <div className="container">
             <div className="row">
               <div className="col-sm-5">
                 <div className="raincard">
-                  <h3>{data.sub_heading_2}</h3>
+                  {/* <h3>{data.sub_heading_2}</h3> */}
 
-                  <h2>{data.heading_2}</h2>
+                  {/* <h2>{data.heading_2}</h2> */}
                   <a href="#" className="">
-                    {data.btn2}
+                    {/* {data.btn2} */}
                   </a>
                 </div>
               </div>
@@ -215,6 +203,6 @@ const ClientExpect: React.FC<{data:any}>= async ({data})=> {
       </section>
     </>
   );
-}
+};
 
 export default ClientExpect;

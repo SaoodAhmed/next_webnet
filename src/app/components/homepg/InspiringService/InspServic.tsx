@@ -79,7 +79,7 @@ const InspiringServices: React.FC<{ data: any }> = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="col-sm">
+          {/* <div className="col-sm">
             <div
               className="row"
               data-aos="fade-up"
@@ -189,7 +189,7 @@ const InspiringServices: React.FC<{ data: any }> = ({ data }) => {
                 </div> 
               </div>
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>

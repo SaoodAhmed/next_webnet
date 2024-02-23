@@ -56,7 +56,6 @@ export default async function Home() {
           return <TailorMadeWebsite data={item.meta} />
         }else if(item.type === "clients-1"){
           return <Served data={item.meta}/>
-
         }else if(item.type === "testimonials-1"){
           return <ClientExpect data = {item.meta}/>
         }
