@@ -36,12 +36,12 @@ const  fetchHomePageData = async ()=>{
 
 
 export default async function Home() {
-  const {type, page, components} = await fetchHomePageData()
-    console.log("Home Page Data", components[2].meta)
+  const data = await fetchHomePageData()
+    //console.log("Home Page Data", data.components[2].meta)
   return (
     <>
     {
-      components.map((item:any, i:number)=>{
+      data.components.map((item:any, i:number)=>{
         if(item.type === 'header-1'){
           return <Video data={item.meta} />
         }else if(item.type === 'content-1'){

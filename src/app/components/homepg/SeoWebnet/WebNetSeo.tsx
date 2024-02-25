@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const WebNetSeo: React.FC<{ data: any }> = ({data}) => {
-  console.log("webnet seo: ",data)
+  //console.log("webnet seo: ",data)
   return (
     <>
       <section className="clippath-sec">

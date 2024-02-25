@@ -3,8 +3,8 @@ import dynamic from "next/dynamic";
 
 const InspiringServices: React.FC<{ data: any }> = ({ data }) => {
   const { icons } = data;
-  console.log("its icons", icons);
-  console.log("Services: " + data);
+  //console.log("its icons", icons);
+  //console.log("Services: " + data);
   return (
     <section className="img-head-text green">
       <div className="container">

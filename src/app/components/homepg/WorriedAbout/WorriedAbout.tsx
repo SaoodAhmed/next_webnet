@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const WorriedAbou: React.FC<{ data: any }> = ({ data }) => {
-  console.log("Worried About: ", data);
+  //console.log("Worried About: ", data);
   return (
     <>
       {/* orange,yellow,green,blue,purple, pink */}

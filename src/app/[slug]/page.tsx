@@ -1,5 +1,11 @@
 import React from "react";
 import Pricing from "../pricing/Pricing";
+import Banner from "../components/aboutpg/Banner/Banner";
+import HeadText from "../components/aboutpg/HeadText/HeadText";
+import AboutFace from "../components/aboutpg/InventDesign/AboutFace";
+import Offices from "../components/aboutpg/Offices/Offices";
+import Gestures from "../components/aboutpg/BeliefsGestures/Gestures";
+import BookAppointment from "../components/homepg/BookApointment/Appointment";
 
 const fetchHomePageData = async (slug: any) => {
   try {
@@ -21,13 +27,14 @@ const fetchHomePageData = async (slug: any) => {
 const dynamicPage = async ({ params }: { params: { slug: string } }) => {
   
   const pageData = await fetchHomePageData(params.slug);
+  console.log("page data: ",pageData)
 
 
 
 
 
   if(pageData.page.slug === 'pricing'){
-    console.log(pageData.page.slug === 'pricing')
+    //console.log(pageData.page.slug === 'pricing')
     return (
       <>
       
@@ -36,12 +43,17 @@ const dynamicPage = async ({ params }: { params: { slug: string } }) => {
       </>
     );
 
-  }else if(pageData.page.slug === 'about-us-page'){
+  }else if(pageData.page.slug === 'about-us-page-1'){
 
     return (
       <>
       
-        <div></div>
+            <Banner/>
+            <HeadText/>
+            <AboutFace/>  
+            <Offices/>
+            <Gestures/> 
+            <BookAppointment/> 
   
       </>
     );

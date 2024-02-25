@@ -1,17 +1,16 @@
 import React from "react";
 
 const Pricing: React.FC<{ data: any }> = ({ data }) => {
-  console.log("Princing: ", data);
-  const { type, page, components } = data;
+  //console.log("Princing: ", data);
 
-  console.log("components: ", components);
+  //console.log("components: ", components);
   return (
     <>
       <section className="packages_sec purple">
         <div className="container">
           <div className="row">
             <div className="col-sm-8 offset-sm-2">
-              {components.map((item: any) => {
+              {data.components.map((item: any) => {
                 if (item.type === "pricing-1") {
                   return (
                     <>
@@ -296,7 +295,7 @@ const Pricing: React.FC<{ data: any }> = ({ data }) => {
                   </tr>
                 </tbody>
               </table>
-              {components.map((item: any) => {
+              {data.components.map((item: any) => {
                 if (item.type === "pricing-1") {
                   return (
                     <>
@@ -320,7 +319,7 @@ const Pricing: React.FC<{ data: any }> = ({ data }) => {
             data-aos-anchor-placement="top-center"
           >
             {
-              components.map((item:any)=>{
+              data.components.map((item:any)=>{
                 if(item.type === 'content-1'){
                   return (
                     <>

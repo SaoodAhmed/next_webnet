@@ -1,13 +1,11 @@
 "use client";
 
 import React from "react";
-import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { useState} from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import Link from "next/link";
-import axios from "axios";
+
 
 
 
@@ -20,24 +18,11 @@ const Header:React.FC<{data:any}> = ({data}) => {
  
 
   const [activeMenu, setActiveMenu] = useState(null);
-  const [menuData, setMenuData] = useState<any>(null);
   const [MenuCss, updateMenuState] = useState({
     transform: "translateX(100%)",
   });
 
 
-  useEffect(() => {
-    // Fetch menu data when component mounts
-    axios.get("https://webnet.imagiacian.com/api/primary-menu")
-      .then((response:any) => {
-        setMenuData(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching menu data:", error);
-      });
-  }, []);
-
-  console.log("my menu: ",menuData)
 
   
 
@@ -78,14 +63,16 @@ const Header:React.FC<{data:any}> = ({data}) => {
             <div className="fll-left">
               <ul className="fll-nav-main-menu">
                 <li>
-                  <a className="parent_links" href="index">
+                  <a className="parent_links" href="/">
                     Home{" "}
                   </a>
                 </li>
                 <li>
-                  <a className="parent_links" href="about">
+                  <Link className="parent_links" href={data?.[1].slug} onClick={() =>
+                      updateMenuState({ transform: "translateX(100%)" })
+                    }>
                     About us{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li
                 // onClick={"openTab(event, 'tab1')"}

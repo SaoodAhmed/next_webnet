@@ -16,7 +16,7 @@ const fetchClientData = async ()=>{
   try {
 
     const res = await fetch(`${process.env.BASE_URL}/api/fetch-clients?limit=3`,{cache:'no-store'})
-    console.log(res.ok)
+    //console.log(res.ok)
     if(!res.ok){
       throw Error("Client Data fetching fail")
     }
@@ -39,7 +39,7 @@ const fetchClientData = async ()=>{
 
 const Served:React.FC<{data:any}>=async ({data})=>{
   const clientData:ClientDataType[] = await fetchClientData()
-  console.log("client site data: ",clientData)
+  //console.log("client site data: ",clientData)
     return (
       <>
       {/* yellow purple orange green pink blue */}

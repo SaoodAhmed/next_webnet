@@ -68,7 +68,7 @@ export default async function RootLayout({
       <body className={inter.className}>
 
 
-        <Header/>
+        <Header data = {menu}/>
         {children}
         <Footer/>
 

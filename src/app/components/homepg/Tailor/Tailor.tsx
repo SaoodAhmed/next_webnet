@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 
 const TailorMadeWebsite: React.FC<{data:any}> = ({data}) => {
-  console.log("Tailor Made: ", data)
+  //console.log("Tailor Made: ", data)
   return (
     <>
       {/* chair bg section */}

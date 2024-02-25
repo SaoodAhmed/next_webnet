@@ -32,7 +32,7 @@ export const testimonials = async () => {
 
 const ClientExpect: React.FC<{ data: any }> = async ({ data }) => {
   const testimonialsData: TestiNomialsType[] = await testimonials();
-  console.log("testimonial:", testimonialsData);
+  //console.log("testimonial:", testimonialsData);
 
   return (
     <>
