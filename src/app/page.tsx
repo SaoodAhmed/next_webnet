@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Video from "./components/homepg/Hero/Video";
 import Servic from "./components/homepg/Hero/Service";
 import InspiringServices from "./components/homepg/InspiringService/InspServic";
@@ -10,6 +9,9 @@ import TailorMadeWebsite from "./components/homepg/Tailor/Tailor";
 import Served from "./components/homepg/Served/Served";
 import ClientExpect from "./components/homepg/ClientExpect/ClientExpectation";
 import BookAppointment from "./components/homepg/BookApointment/Appointment";
+
+
+
 
 
 
@@ -63,6 +65,7 @@ export default async function Home() {
 
       })
     }
+
       
       {/* <Servic />
       <InspiringServices />

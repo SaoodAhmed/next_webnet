@@ -1,39 +1,29 @@
 "use client";
 
 import React from "react";
-import { useState} from "react";
+import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import Link from "next/link";
 
-
-
-
-
-
-
-const Header:React.FC<{data:any}> = ({data}) => {
-  console.log("it's menu data: ",data)
-  
- 
+const Header: React.FC<{ data: any }> = ({ data }) => {
+  console.log("it's menu data: ", data);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [MenuCss, updateMenuState] = useState({
     transform: "translateX(100%)",
   });
-
-
-
-  
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-
       <header className="home-header">
         <div className="container-fluid">
           <div className="header-row ">
             <a href="index.php" className="logo">
-              <img src={`${process.env.PUBLIC_URL}/assets_frontend/img/logo.webp`} />
+              <img
+                src={`${process.env.PUBLIC_URL}/assets_frontend/img/logo.webp`}
+              />
             </a>
             <div className="relative">
               <button
@@ -41,7 +31,7 @@ const Header:React.FC<{data:any}> = ({data}) => {
                 className="menubtn fixed  right-8 top-7"
                 onClick={() => updateMenuState({ transform: "translateX(0)" })}
               >
-                <GiHamburgerMenu className="text-gray-100" size={40 } />
+                <GiHamburgerMenu className="text-gray-100" size={40} />
               </button>
             </div>
           </div>
@@ -68,9 +58,13 @@ const Header:React.FC<{data:any}> = ({data}) => {
                   </a>
                 </li>
                 <li>
-                  <Link className="parent_links" href={data?.[1].slug} onClick={() =>
+                  <Link
+                    className="parent_links"
+                    href={data?.[1].slug}
+                    onClick={() =>
                       updateMenuState({ transform: "translateX(100%)" })
-                    }>
+                    }
+                  >
                     About us{" "}
                   </Link>
                 </li>
@@ -81,7 +75,7 @@ const Header:React.FC<{data:any}> = ({data}) => {
                     onClick={() =>
                       updateMenuState({ transform: "translateX(100%)" })
                     }
-                    href={"../../about"}
+                    href={"services"}
                     data-show="services-child-nav129"
                     className="has-inner-menu parent_links  active  "
                     style={{ cursor: "pointer" }}
@@ -91,12 +85,14 @@ const Header:React.FC<{data:any}> = ({data}) => {
                   </Link>
                 </li>
                 <li
-                // onclick="openTab(event, 'tab2')"
+                  //onClick="openTab(event, 'tab2')"
+                  onClick={() => setOpen(!open)}
                 >
                   <a
                     data-show=".work-child-nav130"
                     className="has-inner-menu parent_links "
                     style={{ cursor: "pointer" }}
+                    href="#"
                   >
                     Our work <span />
                   </a>
@@ -296,36 +292,39 @@ const Header:React.FC<{data:any}> = ({data}) => {
                 </div>
               </div>
             </div>
-            <div
-              id="tab2"
-              className="fll-right work-child-nav work-child-nav130 tab-content "
-            >
-              <div className="fll-box">
-                <p className="btn-back">back</p>
-              </div>
-              <div className="fll-nav-right-inner">
-                <div className="fll-nav-child">
-                  <div className="fll-nav-child-box-1">
-                    <ul className="fll-nav-child-ul">
-                      <li className="head-li">
-                        <a href="portfolio" className="fll-nav-child-h">
-                          Portfolio
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="fll-nav-child-box-2">
-                    <ul className="fll-nav-child-ul">
-                      <li className="head-li">
-                        <a href="clients" className="fll-nav-child-h">
-                          Clientele
-                        </a>
-                      </li>
-                    </ul>
+
+            {open && (
+              <div
+                id="tab2"
+                className="fll-right work-child-nav work-child-nav130 tab-content "
+              >
+                <div className="fll-box">
+                  <p className="btn-back">back</p>
+                </div>
+                <div className="fll-nav-right-inner">
+                  <div className="fll-nav-child">
+                    <div className="fll-nav-child-box-1">
+                      <ul className="fll-nav-child-ul">
+                        <li className="head-li">
+                          <a href="portfolio" className="fll-nav-child-h">
+                            Portfolio
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="fll-nav-child-box-2">
+                      <ul className="fll-nav-child-ul">
+                        <li className="head-li">
+                          <a href="clients" className="fll-nav-child-h">
+                            Clientele
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
             <div className="fll-right work-child-nav work-child-nav131">
               <div className="fll-box">
                 <p className="btn-back">back</p>

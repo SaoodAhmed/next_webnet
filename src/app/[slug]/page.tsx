@@ -43,7 +43,7 @@ const dynamicPage = async ({ params }: { params: { slug: string } }) => {
       </>
     );
 
-  }else if(pageData.page.slug === 'about-us-page-1'){
+  }else if(pageData.page.slug === 'about'){
 
     return (
       <>
@@ -58,11 +58,13 @@ const dynamicPage = async ({ params }: { params: { slug: string } }) => {
       </>
     );
 
+  }else if(pageData.page.slug === 'contact-us'){
+    return (
+      <>
+      
+      </>
+    )
   }
-
-
-
-
 
 };
 
