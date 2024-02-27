@@ -17,7 +17,7 @@ import BookAppointment from "../components/homepg/BookApointment/Appointment";
 const Page = async () => {
     
   return (
-    <>
+        <>
             
             <Banner/>
             {/* <Servic /> */}

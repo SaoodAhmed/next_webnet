@@ -87,7 +87,7 @@ export default async function RootLayout({
           async
           src='https://cdn.startbootstrap.com/sb-forms-latest.js'
         ></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> */}
 
 
         <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
@@ -105,7 +105,7 @@ export default async function RootLayout({
         <script src="js/scripts.js"></script>
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> */}
 
         {/* <script>
         var input = document.querySelector("#phone");
