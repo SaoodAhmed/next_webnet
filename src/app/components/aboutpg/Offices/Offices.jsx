@@ -62,14 +62,17 @@ export default function Offices(){
                             <ul className="contactInfo">
                             <li>
                                 <b>ADDRESS</b>
+                                <div className="flex mt-2">
+                                <img src="img/locator.png" alt="" /> 
                                 <p>
-                                <img src="img/locator.png" alt="" /> B-69 Block/18
-                                Gulshan-e-Iqbal, Karachi
+                                    B-69 Block/18
+                                    Gulshan-e-Iqbal, Karachi
                                 </p>
+                                </div>
                             </li>
                             <li>
                                 <b>PHONE</b>
-                                <p>
+                                <p className="flex mt-2 items-center">
                                 <img src="img/call.png" alt="" />{" "}
                                 <a href="tel:(+92)3403701111">(+92)3403701111</a> |{" "}
                                 <a href="tel:(+92)3073337312">(+92)3073337312</a>
@@ -77,7 +80,7 @@ export default function Offices(){
                             </li>
                             <li>
                                 <b>Email</b>
-                                <p>
+                                <p className="flex mt-2">
                                 <img src="img/call.png" alt="" />{" "}
                                 <a href="mailto:info@webnet.com.pk">
                                     {" "}

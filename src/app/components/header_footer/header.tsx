@@ -58,12 +58,12 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
             <div className="fll-left">
               <ul className="fll-nav-main-menu">
                 {data.map((page: any) => {
-                  if (page.childrens.length >= 1) {
+                  if (page.childrens.length > 0) {
                     return (
                       <>
                         <li
                           onClick={
-                            page.id == 550
+                            page.slug == "services"
                               ? (e) => openTab(e, "tab1")
                               : (e) => openTab(e, "tab2")
                           }
@@ -71,14 +71,14 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                           <Link
                             href={page.slug}
                             data-show={`${
-                              page.id == 550
+                              page.slug == "services"
                                 ? "services-child-nav129"
                                 : ".work-child-nav130"
-                            }  `}
+                            }`}
                             className={`${
-                              page.id == 550 && tab == "tab1"
+                              page.slug == "services" && tab == "tab1"
                                 ? "has-inner-menu parent_links active "
-                                : page.id == 563 && tab == "tab2"
+                                : page.slug == "our-work" && tab == "tab2"
                                 ? "has-inner-menu parent_links active"
                                 : ""
                             }`}
@@ -90,7 +90,7 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                         </li>
                       </>
                     );
-                  } else if (page.childrens.length == 0) {
+                  } else {
                     return (
                       <>
                         <li
@@ -99,27 +99,11 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                             page.slug === "cms_software"
                               ? "vip-menu "
                               : "parent_links"
-                          }  `}
+                          }`}
                         >
                           <a href={page.slug}>
                             <i className="" /> {page.title}
                           </a>
-                        </li>
-                      </>
-                    );
-                  } else {
-                    return (
-                      <>
-                        <li>
-                          <Link
-                            className="parent_links"
-                            href={"/"}
-                            onClick={() =>
-                              updateMenuState({ transform: "translateX(100%)" })
-                            }
-                          >
-                            {page.title}{" "}
-                          </Link>
                         </li>
                       </>
                     );
@@ -262,34 +246,39 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                 </div>
                 <div className="fll-nav-right-inner">
                   <div className="fll-nav-child">
-                    <div className="fll-nav-child-box-1">
-                      <ul className="fll-nav-child-ul">
-                        {/* {data.map((page: any) => {
-                              if (page.slug === "services") {
-                                return page.childrens.map((children: any) => {
-                                  if (children.slug === "web_design_solu")
-                                    return (
-                                      <>
-                                        <li className="head-li">
-                                          <a
-                                            href="web_design_solu"
-                                            className="fll-nav-child-h"
-                                          >
-                                            {children.title}
-                                          </a>
-                                        </li>
-                                        {children.childrens.map((item: any) => (
-                                          <li>
-                                            <a href="simple_web">{item.title}</a>
-                                          </li>
-                                        ))}
-                                      </>
-                                    );
-                                });
-                              }
-                            })} */}
+                    {/* <div className="fll-nav-child-box-1"> */}
+                    {data.map((page: any) => {
+                      if (page.childrens) {
+                        return page.childrens.map((children: any) => {
+                          if (children.childrens) {
+                            return (
+                              <>
+                                <div className="fll-nav-child-box-1">
+                                  <ul className="fll-nav-child-ul">
+                                    <li className="head-li">
+                                      <a
+                                        href={children.slug}
+                                        className="fll-nav-child-h"
+                                      >
+                                        {children.title}
+                                      </a>
+                                    </li>
+                                    {children.childrens.map((item: any) => (
+                                      <li>
+                                        <a href={item.slug}>{item.title}</a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </>
+                            );
+                          } 
+                          
+                        });
+                      }
+                    })}
 
-                        <li className="head-li">
+                    {/* <li className="head-li">
                           <a href="web_design_solu" className="fll-nav-child-h">
                             Website Design Solution
                           </a>
@@ -312,10 +301,9 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                         </li>
                         <li>
                           <a href="hack_proof_web">Hack proof website</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="fll-nav-child-box-2">
+                        </li> */}
+                    {/* </div> */}
+                    {/* <div className="fll-nav-child-box-2">
                       <ul className="fll-nav-child-ul">
                         <li className="head-li">
                           <a
@@ -341,8 +329,8 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                           <a href="facebook_marketing">Facebook marketing</a>
                         </li>
                       </ul>
-                    </div>
-                    <div className="fll-nav-child-box-3">
+                    </div> */}
+                    {/* <div className="fll-nav-child-box-3">
                       <ul className="fll-nav-child-ul">
                         <li className="head-li">
                           <a
@@ -368,7 +356,9 @@ const Header: React.FC<{ data: any }> = ({ data }) => {
                           <a href="mascots">Mascots design</a>
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
+
+                    
                     <div className="fll-nav-child-box-4">
                       <ul className="fll-nav-child-ul">
                         <li>
